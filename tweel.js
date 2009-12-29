@@ -1,7 +1,7 @@
 var Log = {
     elem: false,
     write: function(text){
-        if (!this.elem) 
+        if (!this.elem)
             this.elem = document.getElementById('log');
         this.elem.innerHTML = text;
         this.elem.style.left = (350 - this.elem.offsetWidth / 2) + 'px';
@@ -25,7 +25,7 @@ function load(screen_name) {
         json[0]["name"] = data["screen_name"];
         json[0]["data"] = {"name": data["name"]};
         json[0]["adjacencies"] = [];
-        
+
         init(screen_name);
     });
 }
@@ -38,16 +38,16 @@ function init(screen_name){
             json[0]["adjacencies"].push(""+data[i].id);
         }
         //console.log(json);
-        
+
         //load JSON data
         rgraph.loadJSON(json, 0);
         //compute positions and make the first plot
         rgraph.refresh();
     });
-    
+
     var infovis = document.getElementById('infovis');
     var w = infovis.offsetWidth, h = infovis.offsetHeight;
-    
+
     //init canvas
     //Create a new canvas instance.
     var canvas = new Canvas('mycanvas', {
@@ -55,14 +55,14 @@ function init(screen_name){
         'injectInto': 'infovis',
         'width': w,
         'height': h,
-        
+
         //Optional: create a background canvas and plot
         //concentric circles in it.
         'backgroundCanvas': {
             'styles': {
                 'strokeStyle': '#555'
             },
-            
+
             'impl': {
                 'init': function(){},
                 'plot': function(canvas, ctx){
@@ -85,7 +85,7 @@ function init(screen_name){
         Node: {
             color: '#ccddee'
         },
-        
+
         Edge: {
             color: '#772277'
         },
@@ -93,7 +93,7 @@ function init(screen_name){
         onBeforeCompute: function(node){
             Log.write("centering @" + node.name + "...");
         },
-        
+
         onAfterCompute: function(){
             Log.write("done");
         },
@@ -124,11 +124,9 @@ function init(screen_name){
             }else if (node._depth == 1) {
                 style.fontSize = "0.7em";
                 style.color = "#ccc";
-            
             } else if(node._depth == 2){
                 style.fontSize = "0.6em";
                 style.color = "#494949";
-            
             } else {
                 style.display = 'none';
             }
@@ -138,7 +136,7 @@ function init(screen_name){
             style.left = (left - w / 2) + 'px';
         }
     });
-    
+
     //end
 }
 
@@ -149,7 +147,7 @@ $(document).ready(function() {
         $("#infovis").css("display", "block");
         load($("#screen_name").val());
     });
-    
+
     // Parse url to get parameters
     var n = $(document).getUrlParam("screen_name");
     if (n) {
