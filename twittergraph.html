@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Twitter Graph</title>
+
+<!-- CSS Files -->
+<link type="text/css" href="base.css" rel="stylesheet" />
+<link type="text/css" href="RGraph.css" rel="stylesheet" />
+
+<!-- JIT Library File -->
+<script language="javascript" type="text/javascript" src="jit-yc.js"></script>
+<script type="text/javascript" src="jquery-1.3.2.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="jquery.getUrlParam.js" charset="utf-8"></script>
+
+<!-- Javascript Code File -->
+<script language="javascript" type="text/javascript" src="twittergraph.js"></script>
+</head>
+
+<body>
+<div id="container">
+<div id="center-container">
+    <form id="screen_name_form" onsubmit="return false;">
+        <label for="screen_name">Screen name: </label><input name="screen_name" type="text" id="screen_name" size="30" />
+        <input type="submit" value="Submit"/>
+    </form>
+    <div id="infovis"></div>
+</div>
+<div id="log"></div>
+</div>
+</body>
+</html>
