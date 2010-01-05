@@ -101,7 +101,9 @@ function init(screen_name){
         //and a click handler to move the graph.
         //This method is called once, on label creation.
         onCreateLabel: function(domElement, node){
-            domElement.innerHTML = "<span title='" + node.data.name + " (@" + node.name + ")'>" + node.data.name + "</span>";
+            domElement.innerHTML = node.data.name;
+            $(domElement).attr("title", node.data.name + " (@" + node.name + ")");
+            $(domElement).tipTip();
             domElement.onclick = function(){
                 $.getJSON("http://twitter.com/statuses/friends/"+node.name+".json?callback=?", function(data) {
                     for (var i in data) {
