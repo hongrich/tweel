@@ -1,3 +1,11 @@
+/**
+ * Tweel (The Twitter Friend Wheel)
+ * Copyright 2010 Rich Hong
+ * http://richhong.com/tweel/tweel.html
+ *
+ * MIT License: http://www.opensource.org/licenses/mit-license.php
+ **/
+
 var Log = {
     elem: false,
     write: function(text){
